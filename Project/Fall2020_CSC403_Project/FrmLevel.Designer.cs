@@ -33,6 +33,7 @@
       this.picWall3 = new System.Windows.Forms.PictureBox();
       this.picBossKoolAid = new System.Windows.Forms.PictureBox();
       this.picPlayer = new System.Windows.Forms.PictureBox();
+      this.picHealthpack = new System.Windows.Forms.PictureBox();
       this.picWall5 = new System.Windows.Forms.PictureBox();
       this.picWall4 = new System.Windows.Forms.PictureBox();
       this.picWall12 = new System.Windows.Forms.PictureBox();
@@ -46,6 +47,7 @@
       this.picWall2 = new System.Windows.Forms.PictureBox();
       this.picWall11 = new System.Windows.Forms.PictureBox();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picHealthpack)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
@@ -142,6 +144,19 @@
       this.picPlayer.Size = new System.Drawing.Size(54, 106);
       this.picPlayer.TabIndex = 0;
       this.picPlayer.TabStop = false;
+
+      // 
+      // healthpack 
+      // 
+      this.picHealthpack.BackColor = System.Drawing.Color.Transparent;
+      this.picHealthpack.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.healthpack;
+      this.picHealthpack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.picHealthpack.Location = new System.Drawing.Point(119, 510);
+      this.picHealthpack.Name = "picHealthpack";
+      this.picHealthpack.Size = new System.Drawing.Size(54, 106);
+      this.picHealthpack.TabIndex = 0;
+      this.picHealthpack.TabStop = false;
+
       // 
       // picWall5
       // 
@@ -300,6 +315,7 @@
       this.Controls.Add(this.picWall3);
       this.Controls.Add(this.picBossKoolAid);
       this.Controls.Add(this.picPlayer);
+      this.Controls.Add(this.picHealthpack);
       this.DoubleBuffered = true;
       this.Name = "FrmLevel";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -312,6 +328,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picHealthpack)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall5)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall4)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall12)).EndInit();
@@ -332,6 +349,7 @@
     #endregion
 
     private System.Windows.Forms.PictureBox picPlayer;
+    private System.Windows.Forms.PictureBox picHealthpack;
     private System.Windows.Forms.PictureBox picBossKoolAid;
     private System.Windows.Forms.Label lblInGameTime;
     private System.Windows.Forms.Timer tmrUpdateInGameTime;
