@@ -151,7 +151,7 @@
       this.picHealthpack.BackColor = System.Drawing.Color.Transparent;
       this.picHealthpack.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.healthpack;
       this.picHealthpack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picHealthpack.Location = new System.Drawing.Point(119, 510);
+      this.picHealthpack.Location = new System.Drawing.Point(494, 50);
       this.picHealthpack.Name = "picHealthpack";
       this.picHealthpack.Size = new System.Drawing.Size(54, 106);
       this.picHealthpack.TabIndex = 0;
