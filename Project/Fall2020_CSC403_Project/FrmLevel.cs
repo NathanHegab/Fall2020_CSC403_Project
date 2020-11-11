@@ -7,6 +7,8 @@ namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
     private Player player;
 
+    private HealthPack healthPack;
+
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
@@ -24,10 +26,12 @@ namespace Fall2020_CSC403_Project {
       const int NUM_WALLS = 13;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+      healthPack = new HealthPack(CreatePosition(picHealthpack), CreateCollider(picHealthpack, PADDING), 10);
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
+      healthPack.Img = picHealthpack.BackgroundImage;
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
@@ -74,11 +78,15 @@ namespace Fall2020_CSC403_Project {
         player.MoveBack();
       }
 
+      // check collision with health pack
+      if (HitAHealthPack(player, healthPack)) {
+        Heal(healthPack);
+      }
+
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
         Fight(enemyPoisonPacket);
-      }
-      else if (HitAChar(player, enemyCheeto)) {
+      } else if (HitAChar(player, enemyCheeto)) {
         Fight(enemyCheeto);
       }
       if (HitAChar(player, bossKoolaid)) {
@@ -100,8 +108,19 @@ namespace Fall2020_CSC403_Project {
       return hitAWall;
     }
 
+    private bool HitAHealthPack(Character you, HealthPack health) {
+      return you.Collider.Intersects(health.Collider);
+    }
+
     private bool HitAChar(Character you, Character other) {
       return you.Collider.Intersects(other.Collider);
+    }
+
+    private void Heal(HealthPack health) {
+      if (player.Health < player.MaxHealth) {
+        player.AlterHealth(health.HealthPoints);
+        healthPack.EmptyHealthPack();
+      }
     }
 
     private void Fight(Enemy enemy) {

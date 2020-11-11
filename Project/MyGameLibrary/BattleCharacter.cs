@@ -13,7 +13,7 @@ namespace Fall2020_CSC403_Project.code {
     private float strength;
 
     public event Action<int> AttackEvent;
-
+    
     public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider) {
       MaxHealth = 20;
       strength = 2;
@@ -26,6 +26,9 @@ namespace Fall2020_CSC403_Project.code {
 
     public void AlterHealth(int amount) {
       Health += amount;
+      if (Health > MaxHealth) {
+        Health = MaxHealth;
+      }
     }
   }
 }
