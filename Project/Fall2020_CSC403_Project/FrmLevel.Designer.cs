@@ -1,4 +1,4 @@
-﻿namespace Fall2020_CSC403_Project {
+namespace Fall2020_CSC403_Project {
   partial class FrmLevel {
     /// <summary>
     /// Required designer variable.
@@ -371,4 +371,3 @@
     private System.Windows.Forms.PictureBox picWall11;
   }
 }
-

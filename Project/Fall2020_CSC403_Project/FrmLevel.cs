@@ -1,4 +1,4 @@
-﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -116,6 +116,7 @@ namespace Fall2020_CSC403_Project {
       return you.Collider.Intersects(other.Collider);
     }
 
+
     private void Heal(HealthPack health) {
       if (player.Health < player.MaxHealth) {
         player.AlterHealth(health.HealthPoints);
@@ -150,6 +151,38 @@ namespace Fall2020_CSC403_Project {
 
         case Keys.Down:
           player.GoDown();
+          break;
+
+        case Keys.W:
+          player.GoSprintUp();
+          break;
+
+        case Keys.A:
+          player.GoSprintLeft();
+          break;
+
+        case Keys.S:
+          player.GoSprintDown();
+          break;
+
+        case Keys.D:
+          player.GoSprintRight();
+          break;
+
+        case Keys.I:
+          player.GoSneakUp();
+          break;
+
+        case Keys.J:
+          player.GoSneakLeft();
+          break;
+
+        case Keys.K:
+          player.GoSneakDown();
+          break;
+
+        case Keys.L:
+          player.GoSneakRight();
           break;
 
         default:
