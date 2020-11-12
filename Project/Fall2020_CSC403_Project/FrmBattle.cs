@@ -99,5 +99,15 @@ namespace Fall2020_CSC403_Project {
         this.Hide();
       }
     }
+    protected override void OnFormClosing(FormClosingEventArgs e) {
+      base.OnFormClosing(e);
+      if (e.CloseReason == CloseReason.WindowsShutDown 
+        || e.CloseReason == CloseReason.ApplicationExitCall 
+        || e.CloseReason == CloseReason.FormOwnerClosing) return;
+      if (player.Health > 0 && enemy.Health > 0) {
+        e.Cancel = true;
+        this.Hide();
+      }
+    }
   }
 }
