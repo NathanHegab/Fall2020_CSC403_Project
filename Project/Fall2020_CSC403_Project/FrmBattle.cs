@@ -43,8 +43,10 @@ namespace Fall2020_CSC403_Project {
     }
 
     public static FrmBattle GetInstance(Enemy enemy) {
-      // if instance is null or a pervious enemy has has been ran from, create a new instance. 
+      // if instance is null or a pervious enemy has has been ran from, create a new instance.
       if (instance == null || instance.enemy != enemy) {
+        // closes the form if it exists to fix possible performance issues with high amounts of dangling(hidden) forms.
+        if (instance != null) instance.Close();
         instance = new FrmBattle();
         instance.enemy = enemy;
         instance.Setup();
@@ -99,11 +101,14 @@ namespace Fall2020_CSC403_Project {
         this.Hide();
       }
     }
+
+    // Form will now hide instead of closing when x is clicked.
     protected override void OnFormClosing(FormClosingEventArgs e) {
       base.OnFormClosing(e);
       if (e.CloseReason == CloseReason.WindowsShutDown 
         || e.CloseReason == CloseReason.ApplicationExitCall 
         || e.CloseReason == CloseReason.FormOwnerClosing) return;
+
       if (player.Health > 0 && enemy.Health > 0) {
         e.Cancel = true;
         this.Hide();
