@@ -43,11 +43,13 @@ namespace Fall2020_CSC403_Project {
     }
 
     public static FrmBattle GetInstance(Enemy enemy) {
-      if (instance == null) {
+      // if instance is null or a pervious enemy has has been ran from, create a new instance. 
+      if (instance == null || instance.enemy != enemy) {
         instance = new FrmBattle();
         instance.enemy = enemy;
         instance.Setup();
       }
+
       return instance;
     }
 
@@ -87,6 +89,15 @@ namespace Fall2020_CSC403_Project {
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
+    }
+
+    private void btnRun_Click(object sender, EventArgs e) {
+      if (player.Health <= 0 || enemy.Health <= 0) {
+        instance = null;
+        Close();
+      } else {
+        this.Hide();
+      }
     }
   }
 }
