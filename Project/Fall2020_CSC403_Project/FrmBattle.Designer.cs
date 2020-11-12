@@ -32,10 +32,12 @@
       this.picBossBattle = new System.Windows.Forms.PictureBox();
       this.picEnemy = new System.Windows.Forms.PictureBox();
       this.picPlayer = new System.Windows.Forms.PictureBox();
+      this.picHealthpack = new System.Windows.Forms.PictureBox();
       this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
       ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picHealthpack)).BeginInit();
       this.SuspendLayout();
       // 
       // btnAttack
@@ -122,6 +124,18 @@
       this.picPlayer.TabIndex = 0;
       this.picPlayer.TabStop = false;
       // 
+      // picHealthpack
+      // 
+      this.picHealthpack.BackColor = System.Drawing.Color.WhiteSmoke;
+      this.picHealthpack.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.healthpack;
+      this.picHealthpack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.picHealthpack.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.picHealthpack.Location = new System.Drawing.Point(700, 400);
+      this.picHealthpack.Name = "picHealthpack";
+      this.picHealthpack.Size = new System.Drawing.Size(229, 267);
+      this.picHealthpack.TabIndex = 0;
+      this.picHealthpack.TabStop = false;
+      // 
       // tmrFinalBattle
       // 
       this.tmrFinalBattle.Interval = 5600;
@@ -156,6 +170,7 @@
     #endregion
 
     private System.Windows.Forms.PictureBox picPlayer;
+    private System.Windows.Forms.PictureBox picHealthpack;
     private System.Windows.Forms.PictureBox picEnemy;
     private System.Windows.Forms.Button btnAttack;
     private System.Windows.Forms.Label lblPlayerHealthFull;
