@@ -133,6 +133,38 @@ namespace Fall2020_CSC403_Project {
           player.GoDown();
           break;
 
+        case Keys.W:
+          player.GoSprintUp();
+          break;
+
+        case Keys.A:
+          player.GoSprintLeft();
+          break;
+
+        case Keys.S:
+          player.GoSprintDown();
+          break;
+
+        case Keys.D:
+          player.GoSprintRight();
+          break;
+
+        case Keys.I:
+          player.GoSneakUp();
+          break;
+
+        case Keys.J:
+          player.GoSneakLeft();
+          break;
+
+        case Keys.K:
+          player.GoSneakDown();
+          break;
+
+        case Keys.L:
+          player.GoSneakRight();
+          break;
+
         default:
           player.ResetMoveSpeed();
           break;
