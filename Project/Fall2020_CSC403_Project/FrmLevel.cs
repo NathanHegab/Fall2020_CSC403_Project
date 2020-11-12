@@ -1,4 +1,4 @@
-﻿﻿using Fall2020_CSC403_Project.code;
+using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -115,6 +115,7 @@ namespace Fall2020_CSC403_Project {
     private bool HitAChar(Character you, Character other) {
       return you.Collider.Intersects(other.Collider);
     }
+
 
     private void Heal(HealthPack health) {
       if (player.Health < player.MaxHealth) {

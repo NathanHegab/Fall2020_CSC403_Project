@@ -1,4 +1,4 @@
-﻿namespace Fall2020_CSC403_Project {
+namespace Fall2020_CSC403_Project {
   partial class FrmBattle {
     /// <summary>
     /// Required designer variable.
