@@ -160,8 +160,8 @@
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label lblEnemyHealthFull;
     private System.Windows.Forms.Timer tmrFinalBattle;
-        private System.Windows.Forms.PictureBox picPlayer;
-        private System.Windows.Forms.PictureBox picEnemy;
-        private System.Windows.Forms.PictureBox picBossBattle;
+    private System.Windows.Forms.PictureBox picPlayer;
+    private System.Windows.Forms.PictureBox picEnemy;
+    private System.Windows.Forms.PictureBox picBossBattle;
     }
 }
