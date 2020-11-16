@@ -17,6 +17,7 @@ namespace Fall2020_CSC403_Project {
         private FrmBattle frmBattle;
 
         private FrmInventory frmInventory;
+        private Sword diamondSword;
 
         public FrmLevel()
         {
@@ -32,6 +33,10 @@ namespace Fall2020_CSC403_Project {
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+
+            // create the sword object associated with picture
+            diamondSword = new Sword(CreatePosition(picSword), CreateCollider(picSword, PADDING), "Minecraft's famous Diamond Sword! (Grants 2 additional hit points on enemies!)", picSword.Image, -2);
+
 
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -100,6 +105,17 @@ namespace Fall2020_CSC403_Project {
                 Fight(bossKoolaid);
             }
 
+            // check collision with sword
+            if (HitSword(player, diamondSword))
+            {
+                if(picSword.Image != null)
+                {
+                    AddToInventory(diamondSword);
+                    picSword.Dispose();
+                    picSword.Image = null;
+                }
+            }
+
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
         }
@@ -121,6 +137,20 @@ namespace Fall2020_CSC403_Project {
         private bool HitAChar(Character you, Character other)
         {
             return you.Collider.Intersects(other.Collider);
+        }
+
+        // returns true when sword is hit
+        private bool HitSword(Character you, Sword sword)
+        {
+            return you.Collider.Intersects(sword.Collider);
+        }
+
+        // add sword to inventory when hit
+        private void AddToInventory(Sword diamondSword)
+        {
+            frmInventory = FrmInventory.GetInstance();
+            frmInventory.PutItemInInventory(diamondSword);
+
         }
 
         private void Fight(Enemy enemy)
