@@ -17,6 +17,9 @@ namespace Fall2020_CSC403_Project {
     private DateTime timeBegin;
     private FrmBattle frmBattle;
 
+    private FrmInventory frmInventory;
+    private Sword diamondSword;
+
     public FrmLevel() {
       InitializeComponent();
     }
@@ -30,6 +33,9 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+
+      // create the sword object associated with picture
+      diamondSword = new Sword(CreatePosition(picSword), CreateCollider(picSword, PADDING), "Minecraft's famous Diamond Sword! (Grants 2 additional hit points on enemies!)", picSword.Image, -2);
 
       healthPack.Img = picHealthpack.BackgroundImage;
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
@@ -92,9 +98,19 @@ namespace Fall2020_CSC403_Project {
       if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
       }
+      // check collision with sword
+      if (HitSword(player, diamondSword))
+      {
+        if (picSword.Image != null)
+        {
+           AddToInventory(diamondSword);
+           picSword.Dispose();
+           picSword.Image = null;
+        }
+      }
 
-      // update player's picture box
-      picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+       // update player's picture box
+       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
     }
 
     private bool HitAWall(Character c) {
@@ -122,6 +138,20 @@ namespace Fall2020_CSC403_Project {
         player.AlterHealth(health.HealthPoints);
         healthPack.EmptyHealthPack();
       }
+    }
+
+    // returns true when sword is hit
+    private bool HitSword(Character you, Sword sword)
+    {
+        return you.Collider.Intersects(sword.Collider);
+    }
+
+    // add sword to inventory when hit
+    private void AddToInventory(Sword diamondSword)
+    {
+       frmInventory = FrmInventory.GetInstance();
+       frmInventory.PutItemInInventory(diamondSword);
+
     }
 
     private void Fight(Enemy enemy) {
@@ -183,6 +213,11 @@ namespace Fall2020_CSC403_Project {
 
         case Keys.L:
           player.GoSneakRight();
+          break;
+
+        case Keys.N:
+          frmInventory = FrmInventory.GetInstance();
+          frmInventory.Show();
           break;
 
         default:
