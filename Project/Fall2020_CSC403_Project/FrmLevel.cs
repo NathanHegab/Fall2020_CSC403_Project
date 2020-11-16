@@ -33,10 +33,6 @@ namespace Fall2020_CSC403_Project {
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
-            // create the sword object associated with picture
-            diamondSword = new Sword(CreatePosition(picSword), CreateCollider(picSword, PADDING), "Minecraft's famous Diamond Sword! (Grants 2 additional hit points on enemies!)", picSword.Image, -2);
-
-
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
@@ -103,11 +99,10 @@ namespace Fall2020_CSC403_Project {
             {
                 Fight(bossKoolaid);
             }
-
             // check collision with sword
             if (HitSword(player, diamondSword))
             {
-                if(picSword.Image != null)
+                if (picSword.Image != null)
                 {
                     AddToInventory(diamondSword);
                     picSword.Dispose();

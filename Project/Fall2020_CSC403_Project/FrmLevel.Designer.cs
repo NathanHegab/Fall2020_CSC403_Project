@@ -30,7 +30,6 @@ namespace Fall2020_CSC403_Project {
             this.tmrPlayerMove = new System.Windows.Forms.Timer(this.components);
             this.inventoryMsg = new System.Windows.Forms.Label();
             this.picSword = new System.Windows.Forms.PictureBox();
-            this.picHealthpack = new System.Windows.Forms.PictureBox();
             this.picWall11 = new System.Windows.Forms.PictureBox();
             this.picWall2 = new System.Windows.Forms.PictureBox();
             this.picWall8 = new System.Windows.Forms.PictureBox();
@@ -49,7 +48,6 @@ namespace Fall2020_CSC403_Project {
             this.picBossKoolAid = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picSword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHealthpack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
@@ -112,18 +110,6 @@ namespace Fall2020_CSC403_Project {
             this.picSword.Size = new System.Drawing.Size(56, 48);
             this.picSword.TabIndex = 19;
             this.picSword.TabStop = false;
-            this.picSword.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // healthpack 
-            // 
-            this.picHealthpack.BackColor = System.Drawing.Color.Transparent;
-            this.picHealthpack.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.healthpack;
-            this.picHealthpack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picHealthpack.Location = new System.Drawing.Point(494, 50);
-            this.picHealthpack.Name = "picHealthpack";
-            this.picHealthpack.Size = new System.Drawing.Size(54, 106);
-            this.picHealthpack.TabIndex = 0;
-            this.picHealthpack.TabStop = false;
             // 
             // picWall11
             // 
@@ -321,7 +307,6 @@ namespace Fall2020_CSC403_Project {
             this.ClientSize = new System.Drawing.Size(1176, 726);
             this.Controls.Add(this.picSword);
             this.Controls.Add(this.inventoryMsg);
-            this.Controls.Add(this.picHealthpack);
             this.Controls.Add(this.picWall11);
             this.Controls.Add(this.picWall2);
             this.Controls.Add(this.picWall8);
@@ -348,7 +333,6 @@ namespace Fall2020_CSC403_Project {
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.picSword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHealthpack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall8)).EndInit();
@@ -372,7 +356,6 @@ namespace Fall2020_CSC403_Project {
 
     #endregion
     private System.Windows.Forms.PictureBox picPlayer;
-    private System.Windows.Forms.PictureBox picHealthpack;
     private System.Windows.Forms.PictureBox picBossKoolAid;
     private System.Windows.Forms.Label lblInGameTime;
     private System.Windows.Forms.Timer tmrUpdateInGameTime;
