@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Fall2020_CSC403_Project.FrmBattle" Collapsed="true">
     <Position X="9.25" Y="0.5" Width="1.5" />
@@ -39,6 +39,10 @@
     <TypeIdentifier />
   </Class>
   <Class Name="Fall2020_CSC403_Project.code.Player">
+    <Position X="0.5" Y="9" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Fall2020_CSC403_Project.code.HealthPack">
     <Position X="0.5" Y="9" Width="1.5" />
     <TypeIdentifier />
   </Class>
