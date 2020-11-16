@@ -1,4 +1,4 @@
-using Fall2020_CSC403_Project.code;
+﻿using Fall2020_CSC403_Project.code;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -17,6 +17,7 @@ namespace Fall2020_CSC403_Project {
         private FrmBattle frmBattle;
 
         private FrmInventory frmInventory;
+        private Sword diamondSword;
 
         public FrmLevel()
         {
@@ -32,6 +33,10 @@ namespace Fall2020_CSC403_Project {
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+
+            // create the sword object associated with picture
+            diamondSword = new Sword(CreatePosition(picSword), CreateCollider(picSword, PADDING), "Minecraft's famous Diamond Sword! (Grants 2 additional hit points on enemies!)", picSword.Image, -2);
+
 
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
@@ -99,10 +104,11 @@ namespace Fall2020_CSC403_Project {
             {
                 Fight(bossKoolaid);
             }
+
             // check collision with sword
             if (HitSword(player, diamondSword))
             {
-                if (picSword.Image != null)
+                if(picSword.Image != null)
                 {
                     AddToInventory(diamondSword);
                     picSword.Dispose();
@@ -128,59 +134,59 @@ namespace Fall2020_CSC403_Project {
             return hitAWall;
         }
 
-      private bool HitAChar(Character you, Character other)
-      {
-          return you.Collider.Intersects(other.Collider);
-      }
+        private bool HitAChar(Character you, Character other)
+        {
+            return you.Collider.Intersects(other.Collider);
+        }
 
-      // returns true when sword is hit
-      private bool HitSword(Character you, Sword sword)
-      {
-          return you.Collider.Intersects(sword.Collider);
-      }
+        // returns true when sword is hit
+        private bool HitSword(Character you, Sword sword)
+        {
+            return you.Collider.Intersects(sword.Collider);
+        }
 
-      // add sword to inventory when hit
-      private void AddToInventory(Sword diamondSword)
-      {
-          frmInventory = FrmInventory.GetInstance();
-          frmInventory.PutItemInInventory(diamondSword);
+        // add sword to inventory when hit
+        private void AddToInventory(Sword diamondSword)
+        {
+            frmInventory = FrmInventory.GetInstance();
+            frmInventory.PutItemInInventory(diamondSword);
 
-      }
+        }
 
-      private void Fight(Enemy enemy)
-      {
-          player.ResetMoveSpeed();
-          player.MoveBack();
-          frmBattle = FrmBattle.GetInstance(enemy);
-          frmBattle.Show();
+        private void Fight(Enemy enemy)
+        {
+            player.ResetMoveSpeed();
+            player.MoveBack();
+            frmBattle = FrmBattle.GetInstance(enemy);
+            frmBattle.Show();
 
-          if (enemy == bossKoolaid)
-          {
-              frmBattle.SetupForBossBattle();
-          }
-      }
+            if (enemy == bossKoolaid)
+            {
+                frmBattle.SetupForBossBattle();
+            }
+        }
 
-      private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
-      {
-          switch (e.KeyCode)
-          {
-              case Keys.Left:
-                  player.GoLeft();
-                  break;
+        private void FrmLevel_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    player.GoLeft();
+                    break;
 
-              case Keys.Right:
-                  player.GoRight();
-                  break;
+                case Keys.Right:
+                    player.GoRight();
+                    break;
 
-              case Keys.Up:
-                  player.GoUp();
-                  break;
+                case Keys.Up:
+                    player.GoUp();
+                    break;
 
-              case Keys.Down:
-                  player.GoDown();
-                  break;
+                case Keys.Down:
+                    player.GoDown();
+                    break;
 
-                case Keys.I:
+                case Keys.N:
                     frmInventory = FrmInventory.GetInstance();
                     frmInventory.Show();
                     break;
@@ -192,11 +198,6 @@ namespace Fall2020_CSC403_Project {
         }
 
         private void lblInGameTime_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

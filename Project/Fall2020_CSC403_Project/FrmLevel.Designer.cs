@@ -1,4 +1,4 @@
-namespace Fall2020_CSC403_Project {
+﻿namespace Fall2020_CSC403_Project {
   partial class FrmLevel {
     /// <summary>
     /// Required designer variable.
@@ -98,12 +98,13 @@ namespace Fall2020_CSC403_Project {
             this.inventoryMsg.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.inventoryMsg.Location = new System.Drawing.Point(107, 687);
             this.inventoryMsg.Name = "inventoryMsg";
-            this.inventoryMsg.Size = new System.Drawing.Size(173, 13);
+            this.inventoryMsg.Size = new System.Drawing.Size(178, 13);
             this.inventoryMsg.TabIndex = 18;
-            this.inventoryMsg.Text = "Press the \"I\" key to open Inventory";
+            this.inventoryMsg.Text = "Press the \"N\" key to open Inventory";
             // 
             // picSword
             // 
+            this.picSword.AccessibleDescription = "Minecraft\'s famous Diamond Sword! (+2 damage)";
             this.picSword.Image = global::Fall2020_CSC403_Project.Properties.Resources.diamond_sword;
             this.picSword.Location = new System.Drawing.Point(608, 371);
             this.picSword.Name = "picSword";
@@ -352,6 +353,7 @@ namespace Fall2020_CSC403_Project {
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
     }
 
     #endregion
@@ -379,3 +381,4 @@ namespace Fall2020_CSC403_Project {
     private System.Windows.Forms.PictureBox picSword;
     }
 }
+
