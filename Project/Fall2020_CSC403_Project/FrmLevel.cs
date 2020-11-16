@@ -8,8 +8,6 @@ namespace Fall2020_CSC403_Project {
     {
         private Player player;
 
-        private HealthPack healthPack;
-
         private Enemy enemyPoisonPacket;
         private Enemy bossKoolaid;
         private Enemy enemyCheeto;
@@ -19,7 +17,6 @@ namespace Fall2020_CSC403_Project {
         private FrmBattle frmBattle;
 
         private FrmInventory frmInventory;
-        private Sword diamondSword;
 
         public FrmLevel()
         {
@@ -30,9 +27,8 @@ namespace Fall2020_CSC403_Project {
         {
             const int PADDING = 7;
             const int NUM_WALLS = 13;
-            
+
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
-            healthPack = new HealthPack(CreatePosition(picHealthpack), CreateCollider(picHealthpack, PADDING), 10);
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
@@ -41,7 +37,6 @@ namespace Fall2020_CSC403_Project {
             diamondSword = new Sword(CreatePosition(picSword), CreateCollider(picSword, PADDING), "Minecraft's famous Diamond Sword! (Grants 2 additional hit points on enemies!)", picSword.Image, -2);
 
 
-            healthPack.Img = picHealthpack.BackgroundImage;
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
@@ -94,11 +89,6 @@ namespace Fall2020_CSC403_Project {
             {
                 player.MoveBack();
             }
-            
-            // check collision with health pack
-            if (HitAHealthPack(player, healthPack)) {
-              Heal(healthPack);
-            }
 
             // check collision with enemies
             if (HitAChar(player, enemyPoisonPacket))
@@ -128,36 +118,20 @@ namespace Fall2020_CSC403_Project {
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
         }
-        
-    private bool HitAHealthPack(Character you, HealthPack health) {
-      return you.Collider.Intersects(health.Collider);
-    }
 
-    private bool HitAChar(Character you, Character other) {
-      return you.Collider.Intersects(other.Collider);
-    }
-
-
-    private void Heal(HealthPack health) {
-      if (player.Health < player.MaxHealth) {
-        player.AlterHealth(health.HealthPoints);
-        healthPack.EmptyHealthPack();
-      }
-    }
-
-     private bool HitAWall(Character c)
-     {
-         bool hitAWall = false;
-         for (int w = 0; w < walls.Length; w++)
-         {
-             if (c.Collider.Intersects(walls[w].Collider))
-             {
-                 hitAWall = true;
-                 break;
-             }
-         }
-         return hitAWall;
-     }
+        private bool HitAWall(Character c)
+        {
+            bool hitAWall = false;
+            for (int w = 0; w < walls.Length; w++)
+            {
+                if (c.Collider.Intersects(walls[w].Collider))
+                {
+                    hitAWall = true;
+                    break;
+                }
+            }
+            return hitAWall;
+        }
 
       private bool HitAChar(Character you, Character other)
       {
@@ -211,49 +185,16 @@ namespace Fall2020_CSC403_Project {
                   player.GoDown();
                   break;
 
-              case Keys.N:
-                  frmInventory = FrmInventory.GetInstance();
-                  frmInventory.Show();
-                  break;
-                    
-              case Keys.W:
-                player.GoSprintUp();
-                break;
+                case Keys.I:
+                    frmInventory = FrmInventory.GetInstance();
+                    frmInventory.Show();
+                    break;
 
-              case Keys.A:
-                player.GoSprintLeft();
-                break;
-
-              case Keys.S:
-                player.GoSprintDown();
-                break;
-
-              case Keys.D:
-                player.GoSprintRight();
-                break;
-
-              case Keys.I:
-                player.GoSneakUp();
-                break;
-
-              case Keys.J:
-                player.GoSneakLeft();
-                break;
-
-              case Keys.K:
-                player.GoSneakDown();
-                break;
-
-              case Keys.L:
-                player.GoSneakRight();
-                break;
-
-              default:
-                  player.ResetMoveSpeed();
-                  break;
+                default:
+                    player.ResetMoveSpeed();
+                    break;
             }
         }
-
 
         private void lblInGameTime_Click(object sender, EventArgs e)
         {

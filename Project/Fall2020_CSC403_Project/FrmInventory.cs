@@ -8,7 +8,6 @@ namespace Fall2020_CSC403_Project
     public partial class FrmInventory : Form
     {
         public static FrmInventory instance = new FrmInventory();
-        private static Sword[] inventory = new Sword[3];
 
         public FrmInventory()
         {
@@ -20,22 +19,17 @@ namespace Fall2020_CSC403_Project
             return instance;
         }
 
-        public void PutItemInInventory(Sword sword)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            // looks for the next available spot to put sword in inventory
-            for(int i = 0; i < inventory.Length; i++)
-            {
-                if(inventory[i] != sword)
-                {
-                    inventory[i] = sword;
-                }
-            }
 
-            instance.itemDescription1.Text = sword.swordDescription;
-            instance.inventorySpace1.Image = sword.swordPicture;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
         {
 
         }

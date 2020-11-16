@@ -106,13 +106,13 @@ namespace Fall2020_CSC403_Project {
             // 
             // picSword
             // 
-            this.picSword.AccessibleDescription = "Minecraft\'s famous Diamond Sword! (+2 damage)";
             this.picSword.Image = global::Fall2020_CSC403_Project.Properties.Resources.diamond_sword;
             this.picSword.Location = new System.Drawing.Point(608, 371);
             this.picSword.Name = "picSword";
             this.picSword.Size = new System.Drawing.Size(56, 48);
             this.picSword.TabIndex = 19;
             this.picSword.TabStop = false;
+            this.picSword.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // healthpack 
             // 
