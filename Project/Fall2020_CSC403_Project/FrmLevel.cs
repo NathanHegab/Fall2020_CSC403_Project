@@ -19,6 +19,8 @@ namespace Fall2020_CSC403_Project {
 
         private FrmInventory frmInventory;
         private Sword diamondSword;
+        private Sword daedricSword;
+        private Sword keyblade;
 
         public FrmLevel() {
             InitializeComponent();
@@ -34,8 +36,11 @@ namespace Fall2020_CSC403_Project {
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
 
-            // create the sword object associated with picture
-            diamondSword = new Sword(CreatePosition(picSword), CreateCollider(picSword, PADDING), "Minecraft's famous Diamond Sword! (Grants 2 additional hit points on enemies!)", picSword.Image, -2);
+            // create sword objects associated with pictures
+            diamondSword = new Sword(CreatePosition(picDiamondSword), CreateCollider(picDiamondSword, PADDING), "Minecraft's famous Diamond Sword! (Grants 4 additional hit points on enemies!)", picDiamondSword.Image, -2);
+            daedricSword = new Sword(CreatePosition(picDaedricSword), CreateCollider(picDaedricSword, PADDING), "Crafted from the hearts of your Daedric enemies! (Grants 10 additional hit points on enemies!)", picDaedricSword.Image, -5);
+            keyblade = new Sword(CreatePosition(picKeyblade), CreateCollider(picKeyblade, PADDING), "Kingdom Hearts fans should be familiar with this. (Grants 6 additional hit points on enemies!)", picKeyblade.Image, -3);
+
 
             healthPack.Img = picHealthpack.BackgroundImage;
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
@@ -99,12 +104,27 @@ namespace Fall2020_CSC403_Project {
             if (HitAChar(player, bossKoolaid)) {
                 Fight(bossKoolaid);
             }
-            // check collision with sword
+
+            // check collision with swords
             if (HitSword(player, diamondSword)) {
-                if (picSword.Image != null) {
+                if (picDiamondSword.Image != null) {
                     AddToInventory(diamondSword);
-                    picSword.Dispose();
-                    picSword.Image = null;
+                    picDiamondSword.Dispose();
+                    picDiamondSword.Image = null;
+                }
+            }
+            if (HitSword(player, daedricSword)) {
+                if (picDaedricSword.Image != null) {
+                    AddToInventory(daedricSword);
+                    picDaedricSword.Dispose();
+                    picDaedricSword.Image = null;
+                }
+            }
+            if (HitSword(player, keyblade)) {
+                if (picKeyblade.Image != null) {
+                    AddToInventory(keyblade);
+                    picKeyblade.Dispose();
+                    picKeyblade.Image = null;
                 }
             }
 

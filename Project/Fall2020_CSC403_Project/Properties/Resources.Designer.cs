@@ -73,6 +73,16 @@ namespace Fall2020_CSC403_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap daedric_sword {
+            get {
+                object obj = ResourceManager.GetObject("daedric sword", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap diamond_sword {
             get {
                 object obj = ResourceManager.GetObject("diamond_sword", resourceCulture);
@@ -125,6 +135,16 @@ namespace Fall2020_CSC403_Project.Properties {
         internal static System.Drawing.Bitmap healthpack {
             get {
                 object obj = ResourceManager.GetObject("healthpack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keyblade {
+            get {
+                object obj = ResourceManager.GetObject("keyblade", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
