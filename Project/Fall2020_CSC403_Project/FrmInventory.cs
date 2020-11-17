@@ -3,30 +3,23 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Fall2020_CSC403_Project
-{
-    public partial class FrmInventory : Form
-    {
+namespace Fall2020_CSC403_Project {
+    public partial class FrmInventory : Form {
         public static FrmInventory instance = new FrmInventory();
         private static Sword[] inventory = new Sword[3];
 
-        public FrmInventory()
-        {
+        public FrmInventory() {
             InitializeComponent();
         }
 
-        public static FrmInventory GetInstance()
-        {
+        public static FrmInventory GetInstance() {
             return instance;
         }
 
-        public void PutItemInInventory(Sword sword)
-        {
+        public void PutItemInInventory(Sword sword) {
             // looks for the next available spot to put sword in inventory
-            for(int i = 0; i < inventory.Length; i++)
-            {
-                if(inventory[i] != sword)
-                {
+            for (int i = 0; i < inventory.Length; i++) {
+                if (inventory[i] != sword) {
                     inventory[i] = sword;
                 }
             }
@@ -35,15 +28,13 @@ namespace Fall2020_CSC403_Project
             instance.inventorySpace1.Image = sword.swordPicture;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+        private void button1_Click(object sender, EventArgs e) {
 
         }
 
         // Form will now hide instead of closing when x is clicked.
         // Borrowed from Reggie's closing battle form feature (Thanks Reggie lol)
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
+        protected override void OnFormClosing(FormClosingEventArgs e) {
             base.OnFormClosing(e);
             if (e.CloseReason == CloseReason.WindowsShutDown
               || e.CloseReason == CloseReason.ApplicationExitCall
