@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
     public partial class FrmInventory : Form {
-        public static FrmInventory instance = new FrmInventory();
+        private static FrmInventory instance = new FrmInventory();
         private static Sword[] inventory = new Sword[3];
         private Player player;
 
