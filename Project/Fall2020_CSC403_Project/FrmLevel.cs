@@ -19,13 +19,19 @@ namespace Fall2020_CSC403_Project
         private DateTime timeBegin;
         private FrmBattle frmBattle;
 
+
         private FrmInventory frmInventory;
         private Sword diamondSword;
         private Sword daedricSword;
         private Sword keyblade;
 
+  
         public FrmLevel() {
             InitializeComponent();
+        }
+
+        private void FrmLevel_FormClosing(object sender, FormClosingEventArgs e) {
+            Application.Exit();
         }
 
         private void FrmLevel_Load(object sender, EventArgs e) {
