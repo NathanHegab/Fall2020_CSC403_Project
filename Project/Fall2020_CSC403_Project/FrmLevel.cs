@@ -165,9 +165,9 @@ namespace Fall2020_CSC403_Project {
         }
 
         // add sword to inventory when hit
-        private void AddToInventory(Sword diamondSword) {
+        private void AddToInventory(Sword sword) {
             frmInventory = FrmInventory.GetInstance();
-            frmInventory.PutItemInInventory(diamondSword);
+            frmInventory.PutItemInInventory(sword);
 
         }
 
