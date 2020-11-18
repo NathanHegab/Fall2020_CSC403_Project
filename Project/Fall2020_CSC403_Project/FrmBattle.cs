@@ -16,6 +16,7 @@ namespace Fall2020_CSC403_Project {
       player = Game.player;
     }
 
+
     public void Setup() {
       // update for this enemy
       picEnemy.BackgroundImage = enemy.Img;
@@ -43,11 +44,15 @@ namespace Fall2020_CSC403_Project {
     }
 
     public static FrmBattle GetInstance(Enemy enemy) {
-      if (instance == null) {
+      // if instance is null or a pervious enemy has has been ran from, create a new instance.
+      if (instance == null || instance.enemy != enemy) {
+        // closes the form if it exists to fix possible performance issues with high amounts of dangling(hidden) forms.
+        if (instance != null) instance.Close();
         instance = new FrmBattle();
         instance.enemy = enemy;
         instance.Setup();
       }
+
       return instance;
     }
 
@@ -87,6 +92,28 @@ namespace Fall2020_CSC403_Project {
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
+    }
+
+    private void btnRun_Click(object sender, EventArgs e) {
+      if (player.Health <= 0 || enemy.Health <= 0) {
+        instance = null;
+        Close();
+      } else {
+        this.Hide();
+      }
+    }
+
+    // Form will now hide instead of closing when x is clicked.
+    protected override void OnFormClosing(FormClosingEventArgs e) {
+      base.OnFormClosing(e);
+      if (e.CloseReason == CloseReason.WindowsShutDown
+        || e.CloseReason == CloseReason.ApplicationExitCall
+        || e.CloseReason == CloseReason.FormOwnerClosing) return;
+
+      if (player.Health > 0 && enemy.Health > 0) {
+        e.Cancel = true;
+        this.Hide();
+      }
     }
   }
 }

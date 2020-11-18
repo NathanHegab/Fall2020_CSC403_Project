@@ -34,6 +34,7 @@ namespace Fall2020_CSC403_Project {
       this.picPlayer = new System.Windows.Forms.PictureBox();
       this.picHealthpack = new System.Windows.Forms.PictureBox();
       this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
+      this.button1 = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
@@ -141,6 +142,17 @@ namespace Fall2020_CSC403_Project {
       this.tmrFinalBattle.Interval = 5600;
       this.tmrFinalBattle.Tick += new System.EventHandler(this.tmrFinalBattle_Tick);
       // 
+      // btnRun 
+      // 
+      this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.button1.Location = new System.Drawing.Point(565, 422);
+      this.button1.Name = "button1";
+      this.button1.Size = new System.Drawing.Size(128, 43);
+      this.button1.TabIndex = 8;
+      this.button1.Text = "Run";
+      this.button1.UseVisualStyleBackColor = true;
+      this.button1.Click += new System.EventHandler(this.btnRun_Click);
+      // 
       // FrmBattle
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,6 +160,7 @@ namespace Fall2020_CSC403_Project {
       this.BackColor = System.Drawing.Color.Green;
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ClientSize = new System.Drawing.Size(822, 603);
+      this.Controls.Add(this.button1);
       this.Controls.Add(this.picBossBattle);
       this.Controls.Add(this.lblEnemyHealthFull);
       this.Controls.Add(this.label2);
@@ -163,6 +176,7 @@ namespace Fall2020_CSC403_Project {
       ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picHealthpack)).EndInit();
       this.ResumeLayout(false);
 
     }
@@ -179,5 +193,6 @@ namespace Fall2020_CSC403_Project {
     private System.Windows.Forms.Label lblEnemyHealthFull;
     private System.Windows.Forms.PictureBox picBossBattle;
     private System.Windows.Forms.Timer tmrFinalBattle;
+    private System.Windows.Forms.Button button1;
   }
 }
