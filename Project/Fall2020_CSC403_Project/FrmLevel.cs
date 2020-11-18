@@ -21,7 +21,12 @@ namespace Fall2020_CSC403_Project {
       InitializeComponent();
     }
 
-    private void FrmLevel_Load(object sender, EventArgs e) {
+  private void FrmLevel_FormClosing(object sender, FormClosingEventArgs e)
+  {
+            Application.Exit();
+  }
+
+        private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
 

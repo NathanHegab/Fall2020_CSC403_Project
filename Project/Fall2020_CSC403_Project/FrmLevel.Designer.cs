@@ -323,6 +323,7 @@ namespace Fall2020_CSC403_Project {
       this.Load += new System.EventHandler(this.FrmLevel_Load);
       this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
       this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);
+            this.FormClosing += FrmLevel_FormClosing;
       ((System.ComponentModel.ISupportInitialize)(this.picEnemyCheeto)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picEnemyPoisonPacket)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
