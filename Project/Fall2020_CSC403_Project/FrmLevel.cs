@@ -25,9 +25,16 @@ namespace Fall2020_CSC403_Project
         private Sword daedricSword;
         private Sword keyblade;
 
-  
-        public FrmLevel() {
+        private string inventoryText;
+        private string equipText;
+
+
+        public FrmLevel(string inventoryText, string equipText, string openInventoryText)
+        {
             InitializeComponent();
+            this.inventoryText = inventoryText;
+            this.equipText = equipText;
+            inventoryMsg.Text = openInventoryText;
         }
 
         private void FrmLevel_FormClosing(object sender, FormClosingEventArgs e) {
@@ -267,6 +274,7 @@ namespace Fall2020_CSC403_Project
 
                 case Keys.N:
                     frmInventory = FrmInventory.GetInstance();
+                    frmInventory.changeLanguage(inventoryText, equipText);
                     frmInventory.Show();
                     break;
 

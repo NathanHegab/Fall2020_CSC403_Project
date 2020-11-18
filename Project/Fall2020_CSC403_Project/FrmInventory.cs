@@ -16,6 +16,7 @@ namespace Fall2020_CSC403_Project {
 
         public static FrmInventory GetInstance() {
             return instance;
+
         }
 
         public void PutItemInInventory(Sword sword) {
@@ -43,6 +44,13 @@ namespace Fall2020_CSC403_Project {
                 instance.itemDescription3.Text = sword.swordDescription;
                 instance.inventorySpace3.Image = sword.swordPicture;
             }
+        }
+        public void changeLanguage(string inventoryText, string equipText)
+        {
+            label1.Text = inventoryText;
+            Equip1.Text = equipText;
+            Equip2.Text = equipText;
+            Equip3.Text = equipText;
         }
 
         // equips the sword to player when button is pressed
