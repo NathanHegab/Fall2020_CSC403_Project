@@ -114,10 +114,10 @@ namespace Fall2020_CSC403_Project
             // 
             this.itemDescription3.AutoSize = true;
             this.itemDescription3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.itemDescription3.Font = new System.Drawing.Font("Goudy Stout", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemDescription3.Font = new System.Drawing.Font("Goudy Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.itemDescription3.Location = new System.Drawing.Point(216, 306);
             this.itemDescription3.Name = "itemDescription3";
-            this.itemDescription3.Size = new System.Drawing.Size(2, 21);
+            this.itemDescription3.Size = new System.Drawing.Size(2, 18);
             this.itemDescription3.TabIndex = 21;
             // 
             // Equip1
@@ -140,6 +140,7 @@ namespace Fall2020_CSC403_Project
             this.Equip3.TabIndex = 22;
             this.Equip3.Text = "Equip";
             this.Equip3.UseVisualStyleBackColor = true;
+            this.Equip3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Equip2
             // 
@@ -150,6 +151,7 @@ namespace Fall2020_CSC403_Project
             this.Equip2.TabIndex = 23;
             this.Equip2.Text = "Equip";
             this.Equip2.UseVisualStyleBackColor = true;
+            this.Equip2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FrmInventory
             // 

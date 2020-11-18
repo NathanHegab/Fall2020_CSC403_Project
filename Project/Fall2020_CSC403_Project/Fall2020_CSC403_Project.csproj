@@ -134,7 +134,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\daedric sword.png" />
     <Content Include="data\diamond_sword.png" />
+    <Content Include="data\keyblade.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -11,23 +11,39 @@ namespace Fall2020_CSC403_Project.code {
         public int Health { get; private set; }
         public int MaxHealth { get; private set; }
         private float strength;
+        private Sword weapon;
 
         public event Action<int> AttackEvent;
 
         public BattleCharacter(Vector2 initPos, Collider collider) : base(initPos, collider) {
             MaxHealth = 20;
             strength = 2;
+            weapon = null;
             Health = MaxHealth;
         }
 
+        // adds weapon damage to the amount of damage that will be done by the player
         public void OnAttack(int amount) {
-            AttackEvent((int)(amount * strength));
+            if(weapon == null) {
+                AttackEvent((int)(amount * strength));
+            }
+            else {
+                amount = (int)amount + weapon.damage;
+                AttackEvent((int)(amount * strength));
+            }
+            
         }
 
         public void AlterHealth(int amount) {
             Health += amount;
             if (Health > MaxHealth) {
                 Health = MaxHealth;
+            }
+        }
+
+        public void equipWeapon(Sword weaponToEquip) {
+            if(weapon != weaponToEquip) {
+                weapon = weaponToEquip;
             }
         }
     }
