@@ -3,9 +3,11 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Fall2020_CSC403_Project {
+namespace Fall2020_CSC403_Project
+{
     public partial class FrmLevel : Form {
         private Player player;
+        private Character tempvision;
 
         private HealthPack healthPack;
 
@@ -31,10 +33,12 @@ namespace Fall2020_CSC403_Project {
             const int NUM_WALLS = 13;
 
             player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+            tempvision = new Character(CreatePosition(tempVision), CreateCollider(tempVision, PADDING));
             healthPack = new HealthPack(CreatePosition(picHealthpack), CreateCollider(picHealthpack, PADDING), 10);
             bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
             enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
             enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+            
 
             // create sword objects associated with pictures
             diamondSword = new Sword(CreatePosition(picDiamondSword), CreateCollider(picDiamondSword, PADDING), "Minecraft's famous Diamond Sword! (Grants 4 additional hit points on enemies!)", picDiamondSword.Image, -2);
@@ -46,6 +50,20 @@ namespace Fall2020_CSC403_Project {
             bossKoolaid.Img = picBossKoolAid.BackgroundImage;
             enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
             enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+            //picHider1.Image = picHider1.BackgroundImage;
+            //picHider2.Image = picHider2.BackgroundImage;
+            picHider3.Image = picHider3.BackgroundImage;
+            picHider4.Image = picHider4.BackgroundImage;
+            picHider5.Image = picHider5.BackgroundImage;
+            picHider6.Image = picHider6.BackgroundImage;
+            //picHider7.Image = picHider7.BackgroundImage;
+            //picHider1.BringToFront();
+            //picHider2.BringToFront();
+            picHider3.BringToFront();
+            picHider4.BringToFront();
+            picHider5.BringToFront();
+            picHider6.BringToFront();
+            //picHider7.BringToFront();
 
             bossKoolaid.Color = Color.Red;
             enemyPoisonPacket.Color = Color.Green;
@@ -91,22 +109,27 @@ namespace Fall2020_CSC403_Project {
 
             // check collision with health pack
             if (HitAHealthPack(player, healthPack)) {
+                picHider6.SendToBack();
                 Heal(healthPack);
             }
 
             // check collision with enemies
             if (HitAChar(player, enemyPoisonPacket)) {
+                picHider4.SendToBack();
                 Fight(enemyPoisonPacket);
             }
             else if (HitAChar(player, enemyCheeto)) {
+                picHider3.SendToBack();
                 Fight(enemyCheeto);
             }
             if (HitAChar(player, bossKoolaid)) {
+                picHider5.SendToBack();
                 Fight(bossKoolaid);
             }
 
             // check collision with swords
             if (HitSword(player, diamondSword)) {
+                //picHider2.SendToBack();
                 if (picDiamondSword.Image != null) {
                     AddToInventory(diamondSword);
                     picDiamondSword.Dispose();
@@ -114,13 +137,16 @@ namespace Fall2020_CSC403_Project {
                 }
             }
             if (HitSword(player, daedricSword)) {
+                //picHider7.SendToBack();
                 if (picDaedricSword.Image != null) {
                     AddToInventory(daedricSword);
                     picDaedricSword.Dispose();
                     picDaedricSword.Image = null;
                 }
             }
+
             if (HitSword(player, keyblade)) {
+                //picHider1.SendToBack();
                 if (picKeyblade.Image != null) {
                     AddToInventory(keyblade);
                     picKeyblade.Dispose();
@@ -130,6 +156,7 @@ namespace Fall2020_CSC403_Project {
 
             // update player's picture box
             picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
+            tempVision.Location = new Point((int)player.Position.x - 25, (int)player.Position.y - 30);
         }
 
         private bool HitAWall(Character c) {

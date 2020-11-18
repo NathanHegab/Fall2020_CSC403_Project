@@ -1,3 +1,6 @@
+using System.Drawing.Drawing2D;
+using System.Windows.Forms;
+
 namespace Fall2020_CSC403_Project {
   partial class FrmLevel {
     /// <summary>
@@ -50,6 +53,14 @@ namespace Fall2020_CSC403_Project {
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.picHealthpack = new System.Windows.Forms.PictureBox();
             this.picDaedricSword = new System.Windows.Forms.PictureBox();
+            //this.picHider1 = new System.Windows.Forms.PictureBox();
+            //this.picHider2 = new System.Windows.Forms.PictureBox();
+            this.picHider3 = new System.Windows.Forms.PictureBox();
+            this.picHider4 = new System.Windows.Forms.PictureBox();
+            this.picHider5 = new System.Windows.Forms.PictureBox();
+            this.picHider6 = new System.Windows.Forms.PictureBox();
+            //this.picHider7 = new System.Windows.Forms.PictureBox();
+            this.tempVision = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picKeyblade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDiamondSword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
@@ -71,6 +82,14 @@ namespace Fall2020_CSC403_Project {
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHealthpack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDaedricSword)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.picHider1)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.picHider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHider3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHider4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHider5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHider6)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.picHider7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tempVision)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInGameTime
@@ -116,6 +135,28 @@ namespace Fall2020_CSC403_Project {
             this.picKeyblade.Size = new System.Drawing.Size(85, 58);
             this.picKeyblade.TabIndex = 20;
             this.picKeyblade.TabStop = false;
+            // 
+            // picHider picKeyblade (Not quiet working, item disappears when revealed by vision to quickly)
+            //
+            /*
+            this.picHider1.Image = global::Fall2020_CSC403_Project.Properties.Resources.picHider;
+            this.picHider1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHider1.Location = new System.Drawing.Point(460, 592);
+            this.picHider1.Name = "picHider1";
+            this.picHider1.Size = new System.Drawing.Size(85, 58);
+            this.picHider1.TabIndex = 21;
+            this.picHider1.TabStop = false;
+            // 
+            // picHider picDiamondSword (Not quiet working, item disappears when revealed by vision to quickly)
+            // 
+            this.picHider2.Image = global::Fall2020_CSC403_Project.Properties.Resources.picHider;
+            this.picHider2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHider2.Location = new System.Drawing.Point(608, 371);
+            this.picHider2.Name = "picHider2";
+            this.picHider2.Size = new System.Drawing.Size(56, 48);
+            this.picHider2.TabIndex = 22;
+            this.picHider2.TabStop = false;
+            */
             // 
             // picDiamondSword
             // 
@@ -270,6 +311,16 @@ namespace Fall2020_CSC403_Project {
             this.picEnemyCheeto.TabIndex = 5;
             this.picEnemyCheeto.TabStop = false;
             // 
+            // picHider picEnemyCheeto
+            // 
+            this.picHider3.Image = global::Fall2020_CSC403_Project.Properties.Resources.picHider;
+            this.picHider3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHider3.Location = new System.Drawing.Point(838, 540);
+            this.picHider3.Name = "picHider3";
+            this.picHider3.Size = new System.Drawing.Size(64, 107);
+            this.picHider3.TabIndex = 23;
+            this.picHider3.TabStop = false;
+            // 
             // picEnemyPoisonPacket
             // 
             this.picEnemyPoisonPacket.BackColor = System.Drawing.Color.Transparent;
@@ -280,6 +331,16 @@ namespace Fall2020_CSC403_Project {
             this.picEnemyPoisonPacket.Size = new System.Drawing.Size(63, 96);
             this.picEnemyPoisonPacket.TabIndex = 4;
             this.picEnemyPoisonPacket.TabStop = false;
+            // 
+            // picHider picEnemyPoisonPacket
+            // 
+            this.picHider4.Image = global::Fall2020_CSC403_Project.Properties.Resources.picHider;
+            this.picHider4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHider4.Location = new System.Drawing.Point(110, 98);
+            this.picHider4.Name = "picHider4";
+            this.picHider4.Size = new System.Drawing.Size(63, 96);
+            this.picHider4.TabIndex = 24;
+            this.picHider4.TabStop = false;
             // 
             // picWall3
             // 
@@ -303,9 +364,19 @@ namespace Fall2020_CSC403_Project {
             this.picBossKoolAid.TabIndex = 1;
             this.picBossKoolAid.TabStop = false;
             // 
+            // picHider picBossKoolAid
+            // 
+            this.picHider5.Image = global::Fall2020_CSC403_Project.Properties.Resources.picHider;
+            this.picHider5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHider5.Location = new System.Drawing.Point(971, 74);
+            this.picHider5.Name = "picHider5";
+            this.picHider5.Size = new System.Drawing.Size(193, 194);
+            this.picHider5.TabIndex = 25;
+            this.picHider5.TabStop = false;
+            // 
             // picPlayer
             // 
-            this.picPlayer.BackColor = System.Drawing.Color.Transparent;
+            this.picPlayer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
             this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picPlayer.Location = new System.Drawing.Point(119, 510);
@@ -313,6 +384,20 @@ namespace Fall2020_CSC403_Project {
             this.picPlayer.Size = new System.Drawing.Size(54, 106);
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
+            // 
+            // tempVision
+            // 
+            this.tempVision.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tempVision.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Vision;
+            this.tempVision.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tempVision.Location = new System.Drawing.Point(119, 510);
+            this.tempVision.Name = "tempVision";
+            this.tempVision.Size = new System.Drawing.Size(100, 180);
+            this.tempVision.TabIndex = 28;
+            this.tempVision.TabStop = false;
+            GraphicsPath gp = new GraphicsPath();
+            gp.AddEllipse(tempVision.DisplayRectangle);
+            tempVision.Region = new System.Drawing.Region(gp);
             // 
             // picHealthpack
             // 
@@ -325,6 +410,16 @@ namespace Fall2020_CSC403_Project {
             this.picHealthpack.TabIndex = 0;
             this.picHealthpack.TabStop = false;
             // 
+            // picHider picHealtpack
+            // 
+            this.picHider6.Image = global::Fall2020_CSC403_Project.Properties.Resources.picHider;
+            this.picHider6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHider6.Location = new System.Drawing.Point(494, 50);
+            this.picHider6.Name = "picHider6";
+            this.picHider6.Size = new System.Drawing.Size(54, 106);
+            this.picHider6.TabIndex = 26;
+            this.picHider6.TabStop = false;
+            // 
             // picDaedricSword
             // 
             this.picDaedricSword.Image = global::Fall2020_CSC403_Project.Properties.Resources.daedric_sword;
@@ -334,11 +429,23 @@ namespace Fall2020_CSC403_Project {
             this.picDaedricSword.TabIndex = 21;
             this.picDaedricSword.TabStop = false;
             // 
+            // picHider picDaedricSword (Not quiet working, item disappears when revealed by vision to quickly)
+            // 
+            /*
+            this.picHider7.Image = global::Fall2020_CSC403_Project.Properties.Resources.picHider;
+            this.picHider7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picHider7.Location = new System.Drawing.Point(901, 283);
+            this.picHider7.Name = "picHider7";
+            this.picHider7.Size = new System.Drawing.Size(82, 108);
+            this.picHider7.TabIndex = 27;
+            this.picHider7.TabStop = false;
+            */
+            // 
             // FrmLevel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 726);
             this.Controls.Add(this.picDaedricSword);
@@ -364,6 +471,14 @@ namespace Fall2020_CSC403_Project {
             this.Controls.Add(this.picBossKoolAid);
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.picHealthpack);
+            //this.Controls.Add(this.picHider1);
+            //this.Controls.Add(this.picHider2);
+            this.Controls.Add(this.picHider3);
+            this.Controls.Add(this.picHider4);
+            this.Controls.Add(this.picHider5);
+            this.Controls.Add(this.picHider6);
+            //this.Controls.Add(this.picHider7);
+            this.Controls.Add(this.tempVision);
             this.DoubleBuffered = true;
             this.Name = "FrmLevel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -392,6 +507,14 @@ namespace Fall2020_CSC403_Project {
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHealthpack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDaedricSword)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.picHider1)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.picHider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHider3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHider4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHider5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHider6)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.picHider7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tempVision)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -424,5 +547,13 @@ namespace Fall2020_CSC403_Project {
     private System.Windows.Forms.PictureBox picDiamondSword;
     private System.Windows.Forms.PictureBox picKeyblade;
     private System.Windows.Forms.PictureBox picDaedricSword;
+    //private System.Windows.Forms.PictureBox picHider1;
+    //private System.Windows.Forms.PictureBox picHider2;
+    private System.Windows.Forms.PictureBox picHider3;
+    private System.Windows.Forms.PictureBox picHider4;
+    private System.Windows.Forms.PictureBox picHider5;
+    private System.Windows.Forms.PictureBox picHider6;
+    //private System.Windows.Forms.PictureBox picHider7;
+    private System.Windows.Forms.PictureBox tempVision;
     }
 }
